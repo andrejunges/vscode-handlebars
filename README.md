@@ -6,7 +6,7 @@
 
 *ps: There are even some snippets from ember-paper components (http://miguelcobain.github.io/ember-paper/)*
 
-##Credtis
+##Credits
 Based on https://github.com/daaain/Handlebars (handlebars.tmLanguage)
 
 
