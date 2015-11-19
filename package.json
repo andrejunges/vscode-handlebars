@@ -1,7 +1,7 @@
 {
 	"name": "Handlebars",
 	"description": "Handlebars Visual Studio Code",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"publisher": "andrejunges",
 	"engines": {
 		"vscode": "^0.10.1"
@@ -11,8 +11,13 @@
 		"type": "git",
 		"url": "https://github.com/andrejunges/vscode-handlebars"
 	},
+	"galleryBanner": {
+		"color": "#0F6378",
+		"theme": "dark"	
+	},
 	"categories": [
-		"Languages"
+		"Languages",
+		"Snippets"
 	],
 	"contributes": {
 		"languages": [{
