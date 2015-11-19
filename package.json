@@ -1,0 +1,31 @@
+{
+	"name": "Handlabars",
+	"description": "Handlebars Code",
+	"version": "0.0.1",
+	"publisher": "andrejunges",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "handlebars",
+			"aliases": ["Handlebars", "handlebars"],
+			"extensions": [".handlebars",".hbs"],
+			"configuration": "./handlebars.configuration.json"
+		}],
+		"grammars": [{
+			"language": "handlebars",
+			"scopeName": "text.html.handlebars",
+			"path": "./syntaxes/handlebars.tmLanguage"
+		}],
+		"snippets": [
+			{
+				"language": "handlebars",
+				"path": "./snippets/snippets.json"
+			}
+		]
+	}
+}

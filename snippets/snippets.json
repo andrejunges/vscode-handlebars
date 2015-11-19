@@ -1,0 +1,44 @@
+
+{
+	"if": {
+		"prefix": "if",
+		"body": "{{#if ${1:condition}}}\n\t${0}\n{{/if}}",
+		"description": "IF"
+	},
+	"ifel": {
+		"prefix": "ifel",
+		"body": "{{#if ${2:condition}}}\n\t${1}\n{{else}}\n\t${0}\n{{/if}}",
+		"description": "IF ELSE"
+	},
+	"each": {
+		"prefix": "each",
+		"body": "{{#each ${1:list} as |${2:alias}|}}\n\t${0}\n{{/each}}",
+		"description": "EACH"
+	},
+	//EMBER-PAPER
+	"paper-button": {
+		"prefix": "p-button",
+		"body": "{{#paper-button action='${0:actionName}'}} ${1} {{/paper-button}}",
+		"description": "Material Button"
+	},
+	"paper-button-closure-action": {//action=(action 'transitionRoute' '/')
+		"prefix": "p-button-ca",
+		"body": "{{#paper-button action=(action '${0:actionName}' ${1:param1})}} ${2} {{/paper-button}}",
+		"description": "Material Button with Closure Action"
+	},
+	"paper-radio": {//
+		"prefix": "p-radio",
+		"body": "{{#paper-radio value='${1:value}'}} ${2} {{/paper-radio}}",
+		"description": "Material Radio"
+	},
+	"paper-checkbox": {
+		"prefix": "p-checkbox",
+		"body": "{{#paper-checkbox checked=${1:value}}} ${3} {{/paper-checkbox}}",
+		"description": "Material CheckBox"
+	},
+	"paper-input": {
+		"prefix": "p-input",
+		"body": "{{#paper-input label='${1:label}' value=${2:value}}} ${3} {{/paper-input}}",
+		"description": "Material Input"
+	}
+}
