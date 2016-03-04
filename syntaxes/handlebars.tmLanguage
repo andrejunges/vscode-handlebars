@@ -65,7 +65,7 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>block_comments</key>
+		<key>block-comments</key>
 		<dict>
 			<key>patterns</key>
 			<array>
