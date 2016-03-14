@@ -1,7 +1,7 @@
 {
 	"name": "Handlebars",
 	"description": "Handlebars Visual Studio Code",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "andrejunges",
 	"engines": {
 		"vscode": "^0.10.1"
@@ -13,7 +13,7 @@
 	},
 	"galleryBanner": {
 		"color": "#0F6378",
-		"theme": "dark"	
+		"theme": "dark"
 	},
 	"categories": [
 		"Languages",
@@ -23,7 +23,7 @@
 		"languages": [{
 			"id": "handlebars",
 			"aliases": ["Handlebars", "handlebars"],
-			"extensions": [".handlebars",".hbs"],
+			"extensions": [".handlebars",".hbs",".tpl"],
 			"configuration": "./handlebars.configuration.json"
 		}],
 		"grammars": [{
