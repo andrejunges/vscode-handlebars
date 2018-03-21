@@ -23,7 +23,7 @@
 		"languages": [{
 			"id": "handlebars",
 			"aliases": ["Handlebars", "handlebars"],
-			"extensions": [".handlebars",".hbs",".tpl"],
+			"extensions": [".handlebars",".hbr",".hbs",".tpl"],
 			"configuration": "./handlebars.configuration.json"
 		}],
 		"grammars": [{
