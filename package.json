@@ -1,7 +1,7 @@
 {
 	"name": "Handlebars",
 	"description": "Handlebars Visual Studio Code",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"publisher": "andrejunges",
 	"engines": {
 		"vscode": "^0.10.1"
