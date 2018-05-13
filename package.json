@@ -1,7 +1,7 @@
 {
 	"name": "Handlebars",
 	"description": "Handlebars Visual Studio Code",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"publisher": "andrejunges",
 	"engines": {
 		"vscode": "^0.10.1"
@@ -20,17 +20,29 @@
 		"Snippets"
 	],
 	"contributes": {
-		"languages": [{
-			"id": "handlebars",
-			"aliases": ["Handlebars", "handlebars"],
-			"extensions": [".handlebars",".hbr",".hbs",".tpl"],
-			"configuration": "./handlebars.configuration.json"
-		}],
-		"grammars": [{
-			"language": "handlebars",
-			"scopeName": "text.html.handlebars",
-			"path": "./syntaxes/handlebars.tmLanguage"
-		}],
+		"languages": [
+			{
+				"id": "handlebars",
+				"aliases": [
+					"Handlebars",
+					"handlebars"
+				],
+				"extensions": [
+					".handlebars",
+					".hbr",
+					".hbs",
+					".tpl"
+				],
+				"configuration": "./handlebars.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "handlebars",
+				"scopeName": "text.html.handlebars",
+				"path": "./syntaxes/handlebars.tmLanguage"
+			}
+		],
 		"snippets": [
 			{
 				"language": "handlebars",
