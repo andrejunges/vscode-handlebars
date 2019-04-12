@@ -28,6 +28,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#extends</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#block_comments</string>
 		</dict>
 		<dict>
@@ -65,7 +69,7 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>block-comments</key>
+		<key>block_comments</key>
 		<dict>
 			<key>patterns</key>
 			<array>
@@ -120,7 +124,7 @@
 		<key>block_helper</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?\#)([-a-zA-Z0-9_\./]+)\s?(@?[-a-zA-Z0-9_\./]+)*\s?(@?[-a-zA-Z0-9_\./]+)*\s?(@?[-a-zA-Z0-9_\./]+)*</string>
+			<string>(\{\{)(~?\#)([-a-zA-Z0-9_\./&gt;]+)\s?(@?[-a-zA-Z0-9_\./]+)*\s?(@?[-a-zA-Z0-9_\./]+)*\s?(@?[-a-zA-Z0-9_\./]+)*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -131,24 +135,29 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant.handlebars</string>
+					<string>support.constant.handlebars keyword.control</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.handlebars</string>
+					<string>support.constant.handlebars keyword.control</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant.handlebars</string>
+					<string>variable.parameter.handlebars</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.handlebars</string>
+					<string>support.constant.handlebars</string>
 				</dict>
 				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.handlebars</string>
+				</dict>
+				<key>7</key>
 				<dict>
 					<key>name</key>
 					<string>support.constant.handlebars</string>
@@ -171,6 +180,10 @@
 				<dict>
 					<key>include</key>
 					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#handlebars_attribute</string>
 				</dict>
 			</array>
 		</dict>
@@ -229,13 +242,28 @@
 		<key>else_token</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?else)</string>
+			<string>(\{\{)(~?else)(@?\s(if)\s([-a-zA-Z0-9_\./]+))?</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>support.constant.handlebars</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.handlebars keyword.control</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.handlebars</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.handlebars</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -254,7 +282,7 @@
 		<key>end_block</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?/)([a-zA-Z0-9_\.-]+)\s*</string>
+			<string>(\{\{)(~?/)([a-zA-Z0-9/_\.-]+)\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -265,7 +293,12 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant.handlebars</string>
+					<string>support.constant.handlebars keyword.control</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.handlebars keyword.control</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -327,6 +360,96 @@
 			<string>\\'</string>
 			<key>name</key>
 			<string>constant.character.escape.js</string>
+		</dict>
+		<key>extends</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(\{\{!&lt;)\s([-a-zA-Z0-9_\./]+)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.handlebars</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>support.class.handlebars</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(\}\})</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.handlebars</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.preprocessor.handlebars</string>
+				</dict>
+			</array>
+		</dict>
+		<key>handlebars_attribute</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#handlebars_attribute_name</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#handlebars_attribute_value</string>
+				</dict>
+			</array>
+		</dict>
+		<key>handlebars_attribute_name</key>
+		<dict>
+			<key>begin</key>
+			<string>\b([-a-zA-Z0-9_\.]+)\b=</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.handlebars</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?='|"|)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.handlebars</string>
+		</dict>
+		<key>handlebars_attribute_value</key>
+		<dict>
+			<key>begin</key>
+			<string>([-a-zA-Z0-9_\./]+)\b</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.handlebars</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>('|"|)</string>
+			<key>name</key>
+			<string>entity.other.attribute-value.handlebars</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+			</array>
 		</dict>
 		<key>html_tags</key>
 		<dict>
@@ -407,7 +530,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#tag-generic-attribute</string>
+							<string>#tag_generic_attribute</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -906,7 +1029,7 @@
 		<key>partial_and_var</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(@?[-a-zA-Z0-9_\./]+)*</string>
+			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(@?[-a-zA-Z0-9$_\./]+)*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -937,6 +1060,10 @@
 				<dict>
 					<key>include</key>
 					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#handlebars_attribute</string>
 				</dict>
 			</array>
 		</dict>
